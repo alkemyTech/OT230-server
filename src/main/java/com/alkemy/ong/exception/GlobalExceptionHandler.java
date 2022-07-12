@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 
@@ -26,7 +27,8 @@ public class GlobalExceptionHandler {
            UserNotFoundException.class,
            OrgNotFoundException.class,
            MemberNotFoundException.class,
-           ActivityNotFoundException.class
+           ActivityNotFoundException.class,
+      EntityNotFoundException.class
    })
    @ResponseBody
    protected ExceptionDetails notFoundHandler(Exception exception, HttpServletRequest request) {

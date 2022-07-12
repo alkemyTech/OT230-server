@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-import static com.alkemy.ong.controller.ApiConstants.ROLE_ADMIN;
-import static com.alkemy.ong.controller.ApiConstants.ROLE_USER;
+import static com.alkemy.ong.utils.ApiConstants.ROLE_ADMIN;
+import static com.alkemy.ong.utils.ApiConstants.ROLE_USER;
 
 @RestController
 @RequestMapping("/slides")

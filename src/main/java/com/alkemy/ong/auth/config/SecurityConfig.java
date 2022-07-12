@@ -71,24 +71,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.POST, "/auth/register", "/auth/login").permitAll()
 				.antMatchers(HttpMethod.PATCH,"/users/**").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
 				.antMatchers(HttpMethod.DELETE,"/users/**").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-			   .antMatchers(HttpMethod.POST, "/contacts/**").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-                                //organization
-                                .antMatchers(HttpMethod.GET, "/organization/public").permitAll()
-                                .antMatchers(HttpMethod.PUT, "/organization/public").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-                                .antMatchers(HttpMethod.POST, "/organization").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-                                //slides
-                                .antMatchers(HttpMethod.GET, "/slides").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-                                .antMatchers(HttpMethod.DELETE, "/slides/**").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-								.antMatchers(HttpMethod.POST, "/slides").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-								.antMatchers(HttpMethod.PUT, "/slides/**").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-                                //Activity
-                                .antMatchers(HttpMethod.POST, "/activity").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-								//Contacts
-				                .antMatchers(HttpMethod.GET, "/contacts").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
-								//Comments
-								.antMatchers(HttpMethod.POST,"/comments").permitAll()
-								.antMatchers(HttpMethod.PUT,"/comments/**").permitAll()
+				.antMatchers(HttpMethod.POST, "/contacts/**").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
 
+				//organization
+                .antMatchers(HttpMethod.GET, "/organization/public").permitAll()
+                .antMatchers(HttpMethod.PUT, "/organization/public").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
+                .antMatchers(HttpMethod.POST, "/organization").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
+
+                //slides
+                .antMatchers(HttpMethod.GET, "/slides").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
+                .antMatchers(HttpMethod.DELETE, "/slides/**").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
+				.antMatchers(HttpMethod.POST, "/slides").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
+				.antMatchers(HttpMethod.PUT, "/slides/**").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
+
+				//Activity
+                .antMatchers(HttpMethod.POST, "/activity").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
+
+				//Contacts
+				.antMatchers(HttpMethod.GET, "/contacts").hasRole(RoleEnum.ADMIN.getSimpleRoleName())
+
+				//Comments
+				.antMatchers(HttpMethod.POST,"/comments").permitAll()
+				.antMatchers(HttpMethod.PUT,"/comments/**").permitAll()
+				
+				//Swagger
+				.antMatchers("/swagger-ui/**","/swagger-resources/**","/v2/api-docs").permitAll()
 				.antMatchers(publicEndpoint).permitAll()
 				.anyRequest().authenticated()
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

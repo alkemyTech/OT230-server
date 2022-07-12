@@ -1,8 +1,6 @@
 package com.alkemy.ong.controller;
 
 import com.alkemy.ong.models.request.CategoryRequest;
-import com.alkemy.ong.models.response.CategoryNameResponse;
-import com.alkemy.ong.models.response.CategoryPageResponse;
 import com.alkemy.ong.models.response.CategoryResponse;
 import com.alkemy.ong.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +10,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Optional;
 
-import static com.alkemy.ong.controller.ApiConstants.ROLE_ADMIN;
+import static com.alkemy.ong.utils.ApiConstants.ROLE_ADMIN;
 
 @RestController
 @RequestMapping(path = "/categories")

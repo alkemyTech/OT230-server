@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-import static com.alkemy.ong.controller.ApiConstants.ROLE_ADMIN;
+import static com.alkemy.ong.utils.ApiConstants.ROLE_ADMIN;
 
 @RestController
 @RequestMapping(path = "/testimonials")

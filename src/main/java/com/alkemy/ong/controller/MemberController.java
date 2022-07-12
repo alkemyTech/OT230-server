@@ -2,6 +2,7 @@ package com.alkemy.ong.controller;
 
 import com.alkemy.ong.models.request.MemberRequest;
 import com.alkemy.ong.models.request.UpdateMemberRequest;
+import com.alkemy.ong.models.response.MemberPageResponse;
 import com.alkemy.ong.models.response.MemberResponse;
 import com.alkemy.ong.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-import static com.alkemy.ong.controller.ApiConstants.*;
+import static com.alkemy.ong.utils.ApiConstants.*;
 
 @RestController
 @RequestMapping(path = "/members")
@@ -26,6 +27,12 @@ public class MemberController {
    @PreAuthorize(ROLE_ADMIN)
    public ResponseEntity<List<MemberResponse>> getMembers() {
       return ResponseEntity.ok(memberService.getMembers());
+   }
+
+   @GetMapping(path = "/get-all")
+   @PreAuthorize(ROLE_USER)
+   public ResponseEntity<MemberPageResponse> getMembers(@RequestParam(defaultValue = "1") Integer page) {
+      return ResponseEntity.ok(memberService.pagination(page));
    }
 
    @PostMapping

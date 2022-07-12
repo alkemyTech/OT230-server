@@ -1,6 +1,7 @@
 package com.alkemy.ong.auth.config.seeder;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Set;
 
 import com.alkemy.ong.models.entity.*;
@@ -32,9 +33,12 @@ public class DataBaseSeeder {
     private PasswordEncoder encoder;
     @Autowired
     private NewsRepository newsRepository;
-    
+
     @Autowired
     private ActivityRepository activityRepository;
+
+    @Autowired
+    private MembersRepository membersRepository;
 
     @Autowired
     private CommentRepository commentRepository;
@@ -44,10 +48,10 @@ public class DataBaseSeeder {
     private static final String HOST_EMAIL = "@test.com";
     private static final String firstNameUser[] = {"Patricia", "Ronald", "Carlos", "Nathaniel", "Caitlin", "Juan", "Thanos", "Will"};
     private static final String lastNameUser[] = {"Brett", "Kathleen", "Brandi", "Craig", "Katrina", "Peralta", "Smith", "Doll"};
-    
+
     //Activities
     private static final String name[] = {"Apoyo Escolar para el nivel Primario", "Apoyo Escolar Nivel Secundaria", "Tutorías"};
-    
+
 
     @EventListener
     public void seed(ContextRefreshedEvent event) throws IOException {
@@ -61,8 +65,9 @@ public class DataBaseSeeder {
         if (categoryRepository.findAll().isEmpty()) {
             createCategories();
         }
-        if(newsRepository.findAll().isEmpty()) {
+        if (newsRepository.findAll().isEmpty()) {
             createNews();
+
         }
         if (activityRepository.findAll().isEmpty()) {
             createActivity();
@@ -70,6 +75,11 @@ public class DataBaseSeeder {
         if (commentRepository.findAll().isEmpty()) {
             createComments();
         }
+
+        if (membersRepository.findAll().isEmpty()) {
+            createMembers();
+        }
+
     }
 
     private void createRoles() {
@@ -92,6 +102,7 @@ public class DataBaseSeeder {
                             .email(applicationRole.getSimpleRoleName().toLowerCase() + (index + 1) + HOST_EMAIL)
                             .password(encoder.encode(PASSWORD))
                             .roleId(createListRole(applicationRole))
+                            .timestamp(new Timestamp(System.currentTimeMillis()))
                             .build());
         }
     }
@@ -109,49 +120,64 @@ public class DataBaseSeeder {
         roleRepository.save(role);
     }
 
-    private void createCategories(){
-        for( int i = 1; i < 25; i++){
+    private void createCategories() {
+        for (int i = 1; i < 25; i++) {
             categoryRepository.save(
-                    CategoryEntity.builder()
-                            .name("Category " + i)
-                            .description("Description " + i)
-                            .image("url_image" + i)
-                            .softDelete(false)
-                            .build());
+               CategoryEntity.builder()
+                  .name("Category " + i)
+                  .description("Description " + i)
+                  .image("url_image" + i)
+                  .softDelete(false)
+                  .build());
         }
     }
-    
-    private void createNews(){
-        for( int i = 1; i < 13; i++){
+
+    private void createNews() {
+        for (int i = 1; i < 13; i++) {
             newsRepository.save(NewsEntity.builder()
-            		.name("News " + i)
-            		.content("Content: " + i)
-            		.image("url_image " + i)
-            		.categoryId((long) i)
-            		.build());
+               .name("News " + i)
+               .content("Content: " + i)
+               .image("url_image " + i)
+               .categoryId((long) i)
+               .build());
         }
     }
-    
+
+
     private void createActivity() {
         for (int index = 0; index < 3; index++) {
             activityRepository.save(
-                    ActivityEntity.builder()
-                            .name(name[index])
-                            .content("content " + (index + 1))
-                            .image("image " + (index + 1))
-                            .build());
+               ActivityEntity.builder()
+                  .name(name[index])
+                  .content("content " + (index + 1))
+                  .image("image " + (index + 1))
+                  .build());
         }
     }
 
     private void createComments() {
-        for( int i = 1; i < 13; i++){
+        for (int i = 1; i < 13; i++) {
             commentRepository.save(CommentEntity.builder()
-                            .body("body " + i)
-                            .newsId((long) i)
-                            .userId((long) i)
-                            .build());
+               .body("body " + i)
+               .newsId((long) i)
+               .userId((long) i)
+               .build());
         }
     }
 
+    private void createMembers() {
+        for (int i = 0; i < 20; i++) {
+            membersRepository.save(
+               MemberEntity.builder()
+                  .name("Member: " + i)
+                  .facebookUrl("facebook: " + i)
+                  .instagramUrl("instagram: " + i)
+                  .linkedinUrl("linkedIn: " + i)
+                  .image("image: " + i)
+                  .description("description: " + i)
+                  .build()
+            );
+        }
     }
+}
 

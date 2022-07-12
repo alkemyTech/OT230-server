@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 
-import static com.alkemy.ong.controller.ApiConstants.ROLE_ADMIN;
+import static com.alkemy.ong.utils.ApiConstants.ROLE_ADMIN;
 
 @RestController
 @RequestMapping(path = "/users")
@@ -49,7 +49,6 @@ public class UserController {
       return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
    }
 
-   @PreAuthorize(ROLE_ADMIN)
    @GetMapping(path = "/users")
    public ResponseEntity<List<UserDetailsResponse>> getUsers() {
       return ResponseEntity.ok(userService.getUsers());
