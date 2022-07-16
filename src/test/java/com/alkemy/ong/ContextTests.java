@@ -2,6 +2,7 @@ package com.alkemy.ong;
 
 
 import com.alkemy.ong.auth.utility.RoleEnum;
+import com.alkemy.ong.context.InMemoryUserDetails;
 import com.alkemy.ong.models.entity.RoleEntity;
 import com.alkemy.ong.models.entity.UserEntity;
 import com.alkemy.ong.models.request.AuthRequest;
@@ -30,6 +31,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @RunWith(SpringRunner.class)
 @SpringBootTest(
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        classes = InMemoryUserDetails.class,
         properties = "spring.main.allow-bean-definition-overriding=true")
 @AutoConfigureMockMvc
 @ActiveProfiles("test")

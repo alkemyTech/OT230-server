@@ -1,6 +1,7 @@
 package com.alkemy.ong.auth.config.seeder;
 
 import com.alkemy.ong.auth.utility.RoleEnum;
+import com.alkemy.ong.models.entity.MemberEntity;
 import com.alkemy.ong.models.entity.RoleEntity;
 import com.alkemy.ong.models.entity.UserEntity;
 import com.alkemy.ong.repository.*;
@@ -25,7 +26,8 @@ public class DataBaseSeederTest {
     private RoleRepository roleRepository;
     @Autowired
     private UserRepository userRepository;
-
+    @Autowired
+    private MembersRepository membersRepository;
     @Autowired
     private PasswordEncoder encoder;
 
@@ -48,6 +50,10 @@ public class DataBaseSeederTest {
         }
         if (userRepository.findAll().isEmpty()) {
             createUsers();
+        }
+
+        if (membersRepository.findAll().isEmpty()) {
+            createMembers();
         }
 
     }
@@ -85,5 +91,20 @@ public class DataBaseSeederTest {
         role.setName(applicationRole.getFullRoleName());
         role.setDescription(applicationRole.name());
         roleRepository.save(role);
+    }
+
+    private void createMembers() {
+        for (int i = 0; i < 20; i++) {
+            membersRepository.save(
+               MemberEntity.builder()
+                  .name("Member: " + i)
+                  .facebookUrl("facebook: " + i)
+                  .instagramUrl("instagram: " + i)
+                  .linkedinUrl("linkedIn: " + i)
+                  .image("image: " + i)
+                  .description("description: " + i)
+                  .build()
+            );
+        }
     }
 }
