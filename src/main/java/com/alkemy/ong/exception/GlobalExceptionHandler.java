@@ -15,7 +15,8 @@ public class GlobalExceptionHandler {
 
    @ResponseStatus(HttpStatus.CONFLICT)
    @ExceptionHandler({
-      EmailExistsException.class
+      EmailExistsException.class,
+      NameExistsException.class
    })
    @ResponseBody
    protected ExceptionDetails conflictHandler(Exception exception, HttpServletRequest request) {

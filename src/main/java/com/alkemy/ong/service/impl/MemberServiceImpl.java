@@ -1,6 +1,7 @@
 package com.alkemy.ong.service.impl;
 
 import com.alkemy.ong.exception.MemberNotFoundException;
+import com.alkemy.ong.exception.NameExistsException;
 import com.alkemy.ong.models.entity.MemberEntity;
 import com.alkemy.ong.models.mapper.MemberMapper;
 import com.alkemy.ong.models.request.MemberRequest;
@@ -58,7 +59,7 @@ public class MemberServiceImpl extends ClassUtil<MemberEntity, Long, MembersRepo
 
    private void checkName(String name) {
       if(membersRepository.existsByName(name))
-         throw new RuntimeException("There are a member with the same name");
+         throw new NameExistsException("There are a member with the same name");
    }
 
    @Transactional

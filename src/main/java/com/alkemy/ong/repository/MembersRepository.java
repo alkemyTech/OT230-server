@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface MembersRepository extends JpaRepository<MemberEntity, Long> {
 
    boolean existsByName(String name);
+
+   MemberEntity findByName(String name);
 }
