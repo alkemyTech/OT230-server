@@ -25,6 +25,7 @@ public class GlobalExceptionHandler {
 
    @ResponseStatus(HttpStatus.NOT_FOUND)
    @ExceptionHandler({
+      SlideNotFoundException.class,
       UserNotFoundException.class,
       OrgNotFoundException.class,
       MemberNotFoundException.class,

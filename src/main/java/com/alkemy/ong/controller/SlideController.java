@@ -34,17 +34,19 @@ public class SlideController {
         return ResponseEntity.ok(slideService.details(id));
     }
 
-    @PreAuthorize(ROLE_ADMIN)
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") @Valid @NotNull Long id) {
-        return ResponseEntity.ok(this.slideService.delete(id));
-    }
 
     @PreAuthorize(ROLE_ADMIN)
     @GetMapping
     public ResponseEntity<List<SlidesBasicResponse>> getAllSlide(){
         List<SlidesBasicResponse> slidesBasicResponse = this.slideService.getAllSlides();
         return ResponseEntity.ok().body(slidesBasicResponse);
+    }
+
+    @PreAuthorize(ROLE_USER)
+    @GetMapping("/organization/{id}")
+    public ResponseEntity<List<SlideResponse>> getList4Users(@PathVariable ("id") Long organizationId){
+        List<SlideResponse> slideResponses = this.slideService.getList4Users(organizationId);
+        return ResponseEntity.ok(slideResponses);
     }
 
     @PreAuthorize(ROLE_ADMIN)
@@ -62,10 +64,11 @@ public class SlideController {
         return ResponseEntity.status(HttpStatus.OK).body(updatedSlide);
     }
 
-    @PreAuthorize(ROLE_USER)
-    @GetMapping("/organization/{id}")
-    public ResponseEntity<List<SlideResponse>> getList4Users(@PathVariable ("id") Long organizationId){
-        List<SlideResponse> slideResponses = this.slideService.getList4Users(organizationId);
-        return ResponseEntity.ok(slideResponses);
+    @PreAuthorize(ROLE_ADMIN)
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") @Valid @NotNull Long id) {
+        return ResponseEntity.ok(this.slideService.delete(id));
     }
+
+
 }
