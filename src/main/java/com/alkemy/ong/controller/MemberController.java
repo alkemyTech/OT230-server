@@ -44,7 +44,7 @@ public class MemberController {
    @PutMapping(path = "/{id}")
    @PreAuthorize(ROLE_USER)
    public ResponseEntity<MemberResponse> updateMember(@PathVariable("id") Long id,
-                                            @RequestBody UpdateMemberRequest update) {
+                                            @RequestBody @Valid UpdateMemberRequest update) {
       return ResponseEntity.status(HttpStatus.OK).body(memberService.updateMember(id, update));
    }
 

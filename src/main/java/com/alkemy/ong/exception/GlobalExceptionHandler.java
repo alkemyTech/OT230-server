@@ -25,10 +25,10 @@ public class GlobalExceptionHandler {
 
    @ResponseStatus(HttpStatus.NOT_FOUND)
    @ExceptionHandler({
-           UserNotFoundException.class,
-           OrgNotFoundException.class,
-           MemberNotFoundException.class,
-           ActivityNotFoundException.class,
+      UserNotFoundException.class,
+      OrgNotFoundException.class,
+      MemberNotFoundException.class,
+      ActivityNotFoundException.class,
       EntityNotFoundException.class
    })
    @ResponseBody

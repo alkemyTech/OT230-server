@@ -71,6 +71,7 @@ public class MemberServiceImpl extends ClassUtil<MemberEntity, Long, MembersRepo
    @Transactional
    public MemberResponse updateMember(Long id, UpdateMemberRequest request) {
       MemberEntity member = findById(id, "Member");
+      checkName(request.getName());
 
       member.setName(request.getName());
       member.setFacebookUrl(request.getFacebook());
