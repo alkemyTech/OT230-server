@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "76d07d60-5a18-47cd-98e4-95d006fce1ac",
+		"name": "OT230-PageNews",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21509973"
+	},
+	"item": [
+		{
+			"name": "Page News",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1Njc1NjMyMywiaWF0IjoxNjU2NzIwMzIzfQ.B1ZUrcQbubWx0xdM1Fdz4QbPW7ikhtsKPhSuQAcgW04",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/news",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"news"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

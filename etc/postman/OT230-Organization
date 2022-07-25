@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "6a097c82-f2ac-486c-adef-71dcbc11f3ac",
+		"name": "OT230-Organization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21509973"
+	},
+	"item": [
+		{
+			"name": "Organization",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1Njc1NjMyMywiaWF0IjoxNjU2NzIwMzIzfQ.B1ZUrcQbubWx0xdM1Fdz4QbPW7ikhtsKPhSuQAcgW04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Somos mas\",\r\n    \"image\": \"imagen\",\r\n    \"address\": \"mariano boedo 935\",\r\n    \"phone\": \"1138925362\",\r\n    \"email\": \"org@gmail.com\",\r\n    \"welcomeText\": \"Bienvenidos!\",\r\n    \"aboutUsText\": \"somos una ong\",\r\n    \"urlFacebook\": \"https://es-la.facebook.com/\",\r\n    \"urlInstagram\": \"https://www.instagram.com/\",\r\n    \"urlLinkedin\": \"https://ar.linkedin.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/organization",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"organization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1Njc1NjMyMywiaWF0IjoxNjU2NzIwMzIzfQ.B1ZUrcQbubWx0xdM1Fdz4QbPW7ikhtsKPhSuQAcgW04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1NTk1NDA0NiwiaWF0IjoxNjU1OTE4MDQ2fQ.inSqlwqe3I_nWbKFY067eB6STu67Wp1FkSVLET4vhDo",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Somos mas\",\r\n    \"image\": \"/usr/tmp/img.jpg\",\r\n    \"address\": \"Mariano Boedo 935\",\r\n    \"phone\": \"1160112988\",\r\n    \"email\": \"somosfundacionmas@gmail.com\",\r\n    \"welcomeText\": \"Welcome to Somos Mas!!\",\r\n    \"abautUsText\": \"Since 1997 at Somos Más we have been working with boys and girls,moms and dads, grandparents and residents of the La Cava neighborhood\",\r\n    \"urlFacebook\": \"https://es-la.facebook.com/\",\r\n    \"urlInstagram\": \"https://www.instagram.com/\",\r\n    \"urlLinkedin\": \"https://ar.linkedin.com/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/organization/public/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"organization",
+								"public",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1Njc1NjMyMywiaWF0IjoxNjU2NzIwMzIzfQ.B1ZUrcQbubWx0xdM1Fdz4QbPW7ikhtsKPhSuQAcgW04",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUB0ZXN0LmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NTU5NTM5NTcsImlhdCI6MTY1NTkxNzk1N30.RAcZYA7adWuDmv-ARAemkKM79CwIadOkM0TsJy2KvJ0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/organization/public",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"organization",
+								"public"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

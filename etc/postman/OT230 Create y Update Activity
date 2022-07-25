@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "b9a56674-225b-43fc-8392-855b6778a8cf",
+		"name": "OT230 Create y Update Activity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21509973"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1NjM5OTMxNSwiaWF0IjoxNjU2MzYzMzE1fQ.9gkUAC86XzhMvTiAeWY6_v91wf3-v2FIP-mzoCyryEM",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Programas Educativos\",\r\n    \"content\": \"Mediante nuestros programas educativos, buscamos incrementar la capacidad intelectual, moral y afectiva de las personas de acuerdo con la cultura y las normas de convivencia de la sociedad a la que pertenecen.\",\r\n    \"image\": \"/usr/tmp/img.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/activity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"activity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1NjM5OTMxNSwiaWF0IjoxNjU2MzYzMzE1fQ.9gkUAC86XzhMvTiAeWY6_v91wf3-v2FIP-mzoCyryEM",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Apoyo Escolar para el nivel Primario\",\r\n    \"content\": \"Se realizan los talleres de lunes a jueves de 10 a 12 horas y de 14 a 16 horas en el contraturno\",\r\n    \"image\": \"/usr/tmp/img.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/activity/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"activity",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

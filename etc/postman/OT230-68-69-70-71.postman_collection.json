@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "a229b486-c739-434e-acf8-c0b7f293b75b",
+		"name": "OT230-68-69-70-71",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20550451"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUB0ZXN0LmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE2NTY3NjA1ODAsImlhdCI6MTY1NjcyNDU4MH0.BgSSlQoxp_bfnB9UzvSePTxDS5fS9HpNP97Kv-N3qws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"\",\r\n    \"image\": \"\",\r\n    \"facebook\": \"\",\r\n    \"description\": \"\",\r\n    \"linkedIn\": \"\",\r\n    \"instagram\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/members",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1Njc2MDI4MiwiaWF0IjoxNjU2NzI0MjgyfQ.cC73nIJRI7USYsFTajkzMnqpgWcNH8wUpP9xPu6Zi6Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/members",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"member\",\r\n    \"facebook\": \"www.facebook.com\",\r\n    \"instagram\": \"www.instagram.com\",\r\n    \"linkedIn\": \"www.linkedIn.com\",\r\n    \"description\": \"description\",\r\n    \"image\": \"image.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/members/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"members",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1Njc2MDI4MiwiaWF0IjoxNjU2NzI0MjgyfQ.cC73nIJRI7USYsFTajkzMnqpgWcNH8wUpP9xPu6Zi6Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/members/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"members",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "9802de9a-a658-487d-86f9-156ad4d72095",
+		"name": "CRUD TESTIMONIALS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14563465"
+	},
+	"item": [
+		{
+			"name": "POST - Create Testimonial",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1Njc0Mzc2NywiaWF0IjoxNjU2NzA3NzY3fQ.G0V-3A3gJn607uNcGYC6oqKQqbNsjg_-eGIEsJgXG3k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Testimonial 1\",\r\n    \"image\" : \"url_image\",\r\n    \"content\": \"content\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/testimonials",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"testimonials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Update testimonail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1Njc0Mzc2NywiaWF0IjoxNjU2NzA3NzY3fQ.G0V-3A3gJn607uNcGYC6oqKQqbNsjg_-eGIEsJgXG3k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Testimonial UPDATE\",\r\n    \"image\" : \"url_image\",\r\n    \"content\": \"content\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/testimonials/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"testimonials",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Delete testimonial",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAdGVzdC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTY1NjY3MjQyMiwiaWF0IjoxNjU2NjM2NDIyfQ.R575xKoFNxkUXjLqCtRaAbFVzmKMEwrGoAjjobZv4Ic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/testimonials/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"testimonials",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
